@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main() {
+
+    int num20 = 20; // Declaração e atribuição de valores às variáveis
+    int num40 = 40; 
+    int produto;  // Variável para armazenar o resultado
+
+    produto = num20 * num40;  // Calculando o produto usando as variáveis
+
+    printf("O produto é %d\n", produto);  // Exibindo o resultado
+
+    return 0;
+}
