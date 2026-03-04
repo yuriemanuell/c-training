@@ -1,0 +1,108 @@
+O que é uma função?
+Uma função é um bloco de código nomeado que executa uma tarefa específica.
+Principais vantagens de usar funções:
+
+Evita repetição de código (reutilização)
+Organiza o programa (modularização)
+Facilita manutenção e leitura
+Permite dividir problemas complexos em partes menores
+
+Todo programa em C tem pelo menos uma função obrigatória: a main().
+Estrutura básica de uma função
+Ctipo_de_retorno  nome_da_funcao  (tipo param1, tipo param2, ...) {
+    // declarações de variáveis locais
+    // comandos...
+    
+    return valor;   // só se o tipo de retorno NÃO for void
+}
+Exemplos reais:
+C// 1. Função que não retorna nada (procedimento)
+void saudacao() {
+    printf("Olá, mundo!\n");
+}
+
+// 2. Função que retorna um valor
+float calculaMedia(float n1, float n2) {
+    return (n1 + n2) / 2;
+}
+
+// 3. Função que não recebe parâmetro, mas retorna valor
+int lerIdade() {
+    int idade;
+    printf("Digite sua idade: ");
+    scanf("%d", &idade);
+    return idade;
+}
+Tipos de funções mais comuns (quanto ao retorno)
+
+Tipo de retornoSignificadoUsa return?Exemplo comumvoidNão retorna valor (procedimento)Opcionalvoid limparTela()intRetorna número inteiroObrigatórioint maior(int a, int b)float / doubleRetorna número realObrigatóriofloat calculaArea()charRetorna um caractereObrigatóriochar converteMaiuscula()
+Protótipo de função (declaração)
+O protótipo informa ao compilador como a função será usada antes de ela ser definida.
+Formato:
+Ctipo_de_retorno nome_da_funcao(tipo param1, tipo param2, ...);
+Exemplo completo:
+C#include <stdio.h>
+
+// Protótipos (declarações)
+void saudacao();
+float calculaMedia(float, float);
+
+int main() {
+    saudacao();
+    float m = calculaMedia(7.5, 8.9);
+    printf("Média = %.2f\n", m);
+    return 0;
+}
+
+// Definições das funções
+void saudacao() {
+    printf("Bem-vindo ao programa!\n");
+}
+
+float calculaMedia(float n1, float n2) {
+    return (n1 + n2) / 2;
+}
+Passagem de parâmetros: por valor × por referência
+
+CaracterísticaPassagem por valor (padrão em C)Passagem por referência (usando ponteiro)O que é enviadoCópia do valorEndereço da variável (&)Altera a variável original?NãoSimSintaxe no parâmetroint xint *xSintaxe na chamadafuncao(valor)funcao(&variavel)Exemplo clássicoTroca não funcionaTroca funciona
+Exemplo prático – passagem por valor (não troca):
+Cvoid trocaErrada(int a, int b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+int main() {
+    int x = 10, y = 20;
+    trocaErrada(x, y);
+    printf("%d %d\n", x, y);   // continua 10 20
+}
+Exemplo correto – passagem por referência (com ponteiro):
+Cvoid trocaCorreta(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+    int x = 10, y = 20;
+    trocaCorreta(&x, &y);
+    printf("%d %d\n", x, y);   // agora 20 10
+}
+Resumo rápido – tipos mais usados
+
+ObjetivoTipo de retornoParâmetrosExemplo de usoApenas executar algovoidváriosimprimir, limpar telaCalcular e retornar 1 valorint/float/...por valormédia, máximo, fatorialModificar variáveis do chamadorvoidponteiros (*)trocar valores, ler vários dadosRetornar sucesso/erro + modificarint (0=ok)ponteiros para saídafunções estilo scanf
+Dica de organização (estilo comum em exercícios)
+C#include <stdio.h>
+
+// Protótipos aqui em cima
+
+int main() {
+    // código principal
+    return 0;
+}
+
+// Funções auxiliares aqui embaixo
+Quer que eu explique com mais detalhes algum desses tópicos?
+Exemplos mais avançados (recursão, funções com array, ponteiro para função, etc.)?
+Ou prefere exercíci
